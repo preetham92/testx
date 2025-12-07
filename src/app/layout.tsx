@@ -50,7 +50,7 @@ export default function RootLayout({
               <RedirectToSignIn />
             </SignedOut>
           </ThemeProvider>
-          
+          <Toaster />
         </body>
       </html>
     </ConvexClerkProvider>
