@@ -270,3 +270,5 @@ You may extend this platform by adding:
 ## 📄 License
 
 MIT License — free to use & modify.
+
+## developed by PRdoubleE
