@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
-import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs"; // Removed RedirectToSignIn
 import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Toaster } from "react-hot-toast";
+import LandingPage from "@/components/LandingPage"; // Import the new component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,6 +23,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "TestX",
   description: "Create technical interview experiences with TestX.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -39,6 +43,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            {/* IF SIGNED IN: Show the Dashboard (Navbar + Children) */}
             <SignedIn>
               <div className="min-h-screen">
                 <Navbar />
@@ -46,9 +51,11 @@ export default function RootLayout({
               </div>
             </SignedIn>
 
+            {/* IF SIGNED OUT: Show the Landing Page */}
             <SignedOut>
-              <RedirectToSignIn />
+              <LandingPage />
             </SignedOut>
+            
           </ThemeProvider>
           <Toaster />
         </body>
