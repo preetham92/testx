@@ -99,9 +99,7 @@ export default function LandingPage() {
               </button>
             </SignInButton>
 
-            <Link href="#features" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/8 text-sm text-gray-200 hover:bg-white/3 transition">
-              Explore features
-            </Link>
+          
           </div>
 
           {/* Quick bullets */}
